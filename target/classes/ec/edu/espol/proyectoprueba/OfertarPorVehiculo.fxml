@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="1214.0" style="-fx-background-color: #010001;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectoprueba.OfertarPorVehiculoController">
+   <top>
+      <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #9A031E;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#home" prefHeight="62.0" prefWidth="101.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="HOME" textFill="#9e76da">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#perfil" prefHeight="62.0" prefWidth="101.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="PERFIL" textFill="#9e76da">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#registrarVehiculo" prefHeight="62.0" prefWidth="213.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="REGISTRAR VEHICULO" textFill="#9e76da">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#ofertarVehiculo" prefHeight="62.0" prefWidth="238.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="OFERTAR POR VEHICULO" textFill="#9e76da">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#aceptarOferta" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="ACEPTAR OFERTA" textFill="#9e76da">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#cerrarSession" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="CERRAR SESSION" textFill="#bf95ff">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </top>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Ofertar por Vehiculo" textFill="#fdc4cd" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Baskerville Old Face" size="36.0" />
+               </font>
+            </Label>
+            <Label text="Tipo de Vehiculo" textFill="#eee3e3" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Minimo Recorrido" textFill="#eee3e3" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Maximo Recorrido" textFill="#eee3e3" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Escribe una descripcion" textFill="#eee3e3" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Minimo Año" textFill="#eee3e3" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Maximo Año" textFill="#eee3e3" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Precio minimo" textFill="#eee3e3" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Precio maximo" textFill="#eee3e3" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Label>
+            <ComboBox fx:id="cbx" onAction="#seleccionarTipo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="minRecorrido">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="minRecorridoLabel" text="Label" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <TextField fx:id="maxRecorrido">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="maxRecorridoLabel" text="Label" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="minAño">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="minYearLabel" text="Label" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="maxAño">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="maxYearLabel" text="Label" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <children>
+                  <TextField fx:id="minPrecio">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="minPrecioLabel" text="Label" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <children>
+                  <TextField fx:id="maxPrecio">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="maxPrecioLabel" text="Label" />
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
+   <bottom>
+      <Button mnemonicParsing="false" onMouseClicked="#buscar" prefHeight="51.0" prefWidth="160.0" style="-fx-background-color: #9A031E;" text="Buscar" textFill="#fcdc4d" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </Button>
+   </bottom>
+</BorderPane>

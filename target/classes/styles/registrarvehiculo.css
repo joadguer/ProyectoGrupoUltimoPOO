@@ -1,0 +1,27 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+    
+.combo-box .list-cell:selected {
+    -fx-background-color: #010010; /* Cambia este color al color deseado */
+    -fx-text-fill: #fcd4dc; /* Cambia este color al color deseado */
+}    
+
+
+.combo-box {
+    -fx-text-fill: #754891; /* Cambia este color al color deseado */
+    -fx-font-family: 'Baskerville Old Face';
+    -fx-font-size: 15px;    
+}
+.text-field {
+    -fx-font-family: 'System';
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333; /* Cambia este color al color deseado */
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+    
+}
+}

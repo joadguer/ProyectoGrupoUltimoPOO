@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: #010001;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectoprueba.RegistrarVehiculoController">
+   <top>
+      <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #9A031E;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#home" prefHeight="62.0" prefWidth="101.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="HOME" textFill="#9e76da">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#perfil" prefHeight="62.0" prefWidth="101.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="PERFIL" textFill="#9e76da">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#registrarVehiculo" prefHeight="62.0" prefWidth="213.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="REGISTRAR VEHICULO" textFill="#9e76da">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#ofertarVehiculo" prefHeight="62.0" prefWidth="238.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="OFERTAR POR VEHICULO" textFill="#9e76da">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#aceptarOferta" prefHeight="62.0" prefWidth="175.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="ACEPTAR OFERTA" textFill="#9e76da">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#cerrarSession" prefHeight="62.0" prefWidth="186.0" style="-fx-background-color: #9A031E; -fx-text-fill: #FCDC4D;" text="CERRAR SESSION" textFill="#bf95ff">
+               <font>
+                  <Font name="Baskerville Old Face" size="16.0" />
+               </font>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </top>
+   <center>
+      <GridPane prefHeight="255.0" prefWidth="1188.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="576.0" minWidth="0.0" prefWidth="161.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="972.0" minWidth="10.0" prefWidth="227.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="972.0" minWidth="10.0" prefWidth="278.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="972.0" minWidth="10.0" prefWidth="318.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Año" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Tipo de motor" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="BOTTOM" text="Modelo" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" text="Marca" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="TOP" text="Placa" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameperfil" textFill="#f2e5e5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lastnameperfil" textFill="#f2e5e5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="emailperfil" textFill="#f2e5e5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="usernameperfil" textFill="#f2e5e5" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="organizationperfil" textFill="#f2e5e5" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" prefHeight="70.0" prefWidth="138.0" text="Add Car" textFill="#fcdc4d" GridPane.halignment="LEFT">
+               <font>
+                  <Font name="Goudy Old Style" size="36.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="placaText">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="placalabel" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="marcaText">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font></TextField>
+                  <Label fx:id="marcalabel" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <TextField fx:id="modeloText">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font></TextField>
+                  <Label fx:id="modelolabel" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <TextField fx:id="tipomotorText">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font></TextField>
+                  <Label fx:id="tipomotorlabel" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <TextField fx:id="yearText">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font></TextField>
+                  <Label fx:id="yearlabel" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <Label text="Color" textFill="#f2e5e5" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Tipo de Combustible" textFill="#f2e5e5" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Vidrio" textFill="#f2e5e5" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Transmision" textFill="#f2e5e5" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="recorridoText" prefHeight="25.0" prefWidth="274.0">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="recorridolabel" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font></Label>
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="colorText">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="colorlabel" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <children>
+                  <TextField fx:id="tipocombustibleText">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="tipocombustiblelabel" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <children>
+                  <TextField fx:id="vidrioText">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="vidriolabel" text="*No aplica para motos" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <children>
+                  <TextField fx:id="transmisionText">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="transmisionlabel" text="*No aplica para motos" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <Label text="Tipo de Vehiculo" textFill="#f2e5e5" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Recorrido" textFill="#f2e5e5" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets left="10.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <VBox fx:id="vboxVehiculo" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <children>
+                  <ComboBox fx:id="cbx" onAction="#seleccionarTipo" prefWidth="150.0" stylesheets="@../../../../styles/registrarvehiculo.css" />
+                  <Label fx:id="tipoVehiculolabel" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="45.0" prefWidth="81.0" text="Precio" textFill="#f2e5e5" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets left="10.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <VBox prefHeight="71.0" prefWidth="302.0" GridPane.columnIndex="3">
+               <children>
+                  <TextField fx:id="precioText" prefHeight="0.0" prefWidth="303.0">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="preciolabel" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets right="20.0" top="10.0" />
+               </padding>
+            </VBox>
+            <Label text="Traccion" textFill="#f2e5e5" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <font>
+                  <Font name="Georgia Italic" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+               <children>
+                  <TextField fx:id="traccionText">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="traccionlabel" text="*Solo aplica para camionetas" textFill="#c93752">
+                     <font>
+                        <Font name="Baskerville Old Face" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+   <bottom>
+      <Button mnemonicParsing="false" onMouseClicked="#register" prefHeight="63.0" prefWidth="390.0" style="-fx-background-color: #9A031E;" text="Register" textFill="#fcdc4d" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <left>
+      <ImageView fitHeight="249.0" fitWidth="243.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../../img/AutoAzulRecortado.jpg" />
+         </image>
+      </ImageView>
+   </left>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+</BorderPane>
