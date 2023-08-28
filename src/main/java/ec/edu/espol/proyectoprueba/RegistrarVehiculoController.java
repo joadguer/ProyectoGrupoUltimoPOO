@@ -4,8 +4,11 @@
  */
 package ec.edu.espol.proyectoprueba;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -18,8 +21,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -103,6 +109,8 @@ public class RegistrarVehiculoController implements Initializable {
     private String opcionSeleccionada; 
     @FXML
     private Label tipoVehiculolabel;
+    @FXML
+    private ImageView imagen;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -231,6 +239,7 @@ try {
         }        
     }
 
+    
     
 //guardar el vehiculo en el registro de vehiculos    
     @FXML
@@ -523,6 +532,28 @@ try {
         opcionSeleccionada = s;
         //leer lista de vehiculos
         
+    }
+
+    @FXML
+    private void chooseFile(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Seleccionar Imagen");
+        File selectedFile = fileChooser.showOpenDialog(null);        
+        if (selectedFile != null) {
+            Image selectedImage = new Image(selectedFile.toURI().toString());
+            imagen.setImage(selectedImage);
+
+            // Crear una copia de la imagen y guardarla en otro archivo
+            /*
+            File outputFile = new File("copia_" + selectedFile.getName());
+            try {
+                Files.copy(selectedFile.toPath(), outputFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Copia de imagen guardada en: " + outputFile.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            */
+        }        
     }
     
 }
