@@ -543,6 +543,8 @@ try {
             Image selectedImage = new Image(selectedFile.toURI().toString());
             imagen.setImage(selectedImage);
 
+            
+            //falta agregar la imagen cuando ya se registra
             // Crear una copia de la imagen y guardarla en otro archivo
             /*
             File outputFile = new File("copia_" + selectedFile.getName());
