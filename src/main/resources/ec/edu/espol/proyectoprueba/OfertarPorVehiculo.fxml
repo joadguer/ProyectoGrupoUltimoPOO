@@ -164,7 +164,7 @@
                <children>
                   <TextField fx:id="minAño">
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets right="25.0" top="30.0" />
                      </VBox.margin>
                   </TextField>
                   <Label fx:id="minYearLabel" text="Label" />
@@ -174,7 +174,7 @@
                <children>
                   <TextField fx:id="maxAño">
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets right="25.0" top="30.0" />
                      </VBox.margin>
                   </TextField>
                   <Label fx:id="maxYearLabel" text="Label" />
@@ -184,7 +184,7 @@
                <children>
                   <TextField fx:id="minPrecio">
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets right="25.0" top="30.0" />
                      </VBox.margin>
                   </TextField>
                   <Label fx:id="minPrecioLabel" text="Label" />
@@ -194,7 +194,7 @@
                <children>
                   <TextField fx:id="maxPrecio">
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets right="25.0" top="30.0" />
                      </VBox.margin>
                   </TextField>
                   <Label fx:id="maxPrecioLabel" text="Label" />

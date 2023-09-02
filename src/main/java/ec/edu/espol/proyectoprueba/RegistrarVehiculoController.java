@@ -6,8 +6,12 @@ package ec.edu.espol.proyectoprueba;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -111,6 +115,8 @@ public class RegistrarVehiculoController implements Initializable {
     private Label tipoVehiculolabel;
     @FXML
     private ImageView imagen;
+    
+    private String urlImagen;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -392,7 +398,7 @@ try {
                                                             Integer.parseInt(yearText.getText()),
                                                             Double.parseDouble(precioText.getText()),
                                                             opcionSeleccionada,
-                                                            "mustang.jpg"
+                                                            urlImagen
                             
                                                             
                     );
@@ -444,7 +450,7 @@ try {
                                                             Integer.parseInt(yearText.getText()),
                                                             Double.parseDouble(precioText.getText()),
                                                             opcionSeleccionada,
-                                                            "mustang.jpg"
+                                                            urlImagen
                     );
                     vehiculos.add(vehiculoAgregar);
                     Vehiculo.saveListToFileSer("vehiculos.ser", vehiculos);
@@ -506,7 +512,7 @@ try {
                                                             Integer.parseInt(yearText.getText()),
                                                             Double.parseDouble(precioText.getText()),
                                                             opcionSeleccionada,
-                                                            "mustang.jpg"
+                                                            urlImagen
                     );
                     vehiculos.add(vehiculoAgregar);
                     Vehiculo.saveListToFileSer("vehiculos.ser", vehiculos);
@@ -533,29 +539,65 @@ try {
         //leer lista de vehiculos
         
     }
-
-    @FXML
-    private void chooseFile(MouseEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Seleccionar Imagen");
-        File selectedFile = fileChooser.showOpenDialog(null);        
-        if (selectedFile != null) {
-            Image selectedImage = new Image(selectedFile.toURI().toString());
-            imagen.setImage(selectedImage);
-
-            
-            //falta agregar la imagen cuando ya se registra
-            // Crear una copia de la imagen y guardarla en otro archivo
-            /*
-            File outputFile = new File("copia_" + selectedFile.getName());
-            try {
-                Files.copy(selectedFile.toPath(), outputFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Copia de imagen guardada en: " + outputFile.getAbsolutePath());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            */
-        }        
-    }
     
+    @FXML
+//    private void chooseFile(MouseEvent event) {
+//        FileChooser fileChooser = new FileChooser();
+//        fileChooser.setTitle("Seleccionar Imagen");
+//        File selectedFile = fileChooser.showOpenDialog(null); 
+//        
+//        if (selectedFile != null) {
+//            Image selectedImage = new Image(selectedFile.toURI().toString());
+//            imagen.setImage(selectedImage);
+//            System.out.println(selectedFile.getName());
+//            File outputFile = new File(selectedFile.getName());
+//            try {
+//                Files.copy(selectedFile.toPath(), outputFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//                System.out.println("Copia de imagen guardada en: " + outputFile.getAbsolutePath());
+//                urlImagen = outputFile.getAbsolutePath();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            
+//        }        
+//    }
+//        
+//}
+    
+    
+    
+public void chooseFile(MouseEvent event){
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Seleccionar Imagen: ");
+    File selectedFile  = fileChooser.showOpenDialog(null);
+    
+    if(selectedFile !=  null){
+        Image selectedImage = new Image(selectedFile.toURI().toString());
+        imagen.setImage(selectedImage);
+        System.out.println(selectedFile.getName());
+        
+        // Set the relative path for the directory where you want to save the images
+        String relativePath = "src/main/resources/img/";
+        File directory = new File(relativePath);
+        
+               if (!directory.exists()) {
+            directory.mkdirs();
+        }
+        
+               File outputFile = new File(relativePath + selectedFile.getName());
+        
+        try{
+            Files.copy(selectedFile.toPath(),outputFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Copia de imagen guardada en: " + outputFile.getAbsolutePath());
+            System.out.println(selectedFile.getName());
+            urlImagen = selectedFile.getName();
+            
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 }
+}
+
+            //File outputFile = new File("ProyectoPrueba/src/main/resources/img/"+selectedFile.getName());

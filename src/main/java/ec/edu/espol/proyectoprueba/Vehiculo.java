@@ -13,6 +13,7 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -179,8 +180,61 @@ public class Vehiculo implements Serializable{
         }
         return vehiculos;
     }
+     
+     
+     
     
     //creando el archivo que contiene las lista de vehiculos .ser
+
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vehiculo other = (Vehiculo) obj;
+        if (this.año != other.año) {
+            return false;
+        }
+        if (this.recorrido != other.recorrido) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.precio) != Double.doubleToLongBits(other.precio)) {
+            return false;
+        }
+        if (!Objects.equals(this.placa, other.placa)) {
+            return false;
+        }
+        if (!Objects.equals(this.marca, other.marca)) {
+            return false;
+        }
+        if (!Objects.equals(this.modelo, other.modelo)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipoMotor, other.tipoMotor)) {
+            return false;
+        }
+        if (!Objects.equals(this.color, other.color)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipoCombustible, other.tipoCombustible)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipoVehiculo, other.tipoVehiculo)) {
+            return false;
+        }
+        if (!Objects.equals(this.nameFile, other.nameFile)) {
+            return false;
+        }
+        return Objects.equals(this.ofertas, other.ofertas);
+    }
 }
 
 

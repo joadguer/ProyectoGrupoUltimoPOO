@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -36,9 +37,13 @@ public class VehiculosBuscarController implements Initializable {
     
     private ArrayList<Vehiculo> vehiculos;
     private int indiceUsuario; 
+    @FXML
+    private TextField Precio;
     /**
      * Initializes the controller class.
      */
+    
+    private Vehiculo vehiculo;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODOjoad
@@ -171,8 +176,11 @@ try {
             img.setFitWidth(300);
             img.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent t) -> {
                 Alert a  = new Alert(Alert.AlertType.INFORMATION,p.toString());
-                a.show();
+                a.show(); 
+                vehiculo = p;
+                
             });
+
            hboxVehiculos.getChildren().add(img);   
            
            
@@ -188,6 +196,48 @@ try {
 
     public void setIndiceUsuario(int indiceUsuario) {
         this.indiceUsuario = indiceUsuario;
+    }
+
+    @FXML
+    private void vehiculosOfertar(MouseEvent event) {
+        
+        if(!Precio.getText().isEmpty()){
+            try{
+                double precio = Double.parseDouble(Precio.getText());
+
+                Oferta offer = new Oferta(usuario.getEmail(),precio,vehiculo);
+                
+                ArrayList<Vehiculo> copiaVehiculos = new ArrayList<>(vehiculos);
+
+                //vehiculo.getOfertas().add(offer);
+                for(int i = 0; i<copiaVehiculos.size(); i++){
+                    if(copiaVehiculos.get(i).getPlaca().equals(vehiculo.getPlaca())){
+                        copiaVehiculos.remove(i);
+                        vehiculo.addOferta(offer);
+                        copiaVehiculos.add(i,vehiculo);
+                        Vehiculo.saveListToFileSer("vehiculos.ser", copiaVehiculos);
+                        break;
+                    }
+                    
+                        
+                   
+                }
+                System.out.println(copiaVehiculos);
+                
+                
+                Alert a  = new Alert(Alert.AlertType.INFORMATION,"Oferta Registrada");
+                a.show(); 
+                
+                
+            }catch(Exception e){
+                Alert a  = new Alert(Alert.AlertType.INFORMATION,"No ha ingresado un valor numerico");
+            a.show(); 
+            }
+        }else{
+            Alert a  = new Alert(Alert.AlertType.INFORMATION,"No ha ingresado un precio");
+            a.show(); 
+        }
+        
     }
     
     
