@@ -11,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Properties;
 
 /**
  *
@@ -110,8 +111,39 @@ public class Usuario implements Serializable{
     public String toString() {
         return "Usuario{" + "nombreUsuario=" + nombreUsuario + ", contrase\u00f1a=" + contraseña + ", apellidos=" + apellidos + ", nombre=" + nombre + ", organizacion=" + organizacion + ", email=" + email + '}';
     }
-     
     
+    
+        private static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
+        
+        String remitente = "tiendadeautospoo@gmail.com";
+        
+        String claveemail = "jmivvcsnbosuoork";
+
+        Properties props = System.getProperties();
+        props.put("mail.smtp.host", "smtp.gmail.com");  
+        props.put("mail.smtp.user", remitente);
+        props.put("mail.smtp.clave", claveemail);    
+        props.put("mail.smtp.auth", "true");   
+        props.put("mail.smtp.starttls.enable", "true"); 
+        props.put("mail.smtp.port", "587"); 
+
+        Session session = Session.getDefaultInstance(props);
+        MimeMessage message = new MimeMessage(session);
+
+        try {
+            message.setFrom(new InternetAddress(remitente));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));   
+            message.setSubject(asunto);
+            message.setText(cuerpo);
+            Transport transport = session.getTransport("smtp");
+            transport.connect("smtp.gmail.com", remitente, claveemail);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+        }
+        catch (MessagingException me) {
+            me.printStackTrace();  
+        }
+  }
     
     
 }
