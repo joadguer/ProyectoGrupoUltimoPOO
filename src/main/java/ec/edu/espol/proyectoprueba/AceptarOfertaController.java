@@ -6,6 +6,7 @@ package ec.edu.espol.proyectoprueba;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -23,35 +23,60 @@ import javafx.stage.Stage;
  *
  * @author JOSUE
  */
-public class MenuController implements Initializable{
 
+
+
+public class AceptarOfertaController implements Initializable {
+private Usuario usuario;
+private int indiceUsuario; 
     @FXML
-    private Label bienvenida;
+    private ComboBox<String> cbxOrdenar;
 
-    private Usuario usuario;
 
-    private int indiceUsuario; 
 
-    
+    public Usuario getUsuario() {
+        return usuario;
+        // TODO
+    }    
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public int getIndiceUsuario() {
+        return indiceUsuario;
+    }
 
     /**
      * Initializes the controller class.
      */
-    
-    private  Stage st;
-    
+    public void setIndiceUsuario(int indiceUsuario) {
+        this.indiceUsuario = indiceUsuario;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        ArrayList<String> opciones = new ArrayList<>();
+        opciones.add("Precio");
+        opciones.add("Año");
+        cbxOrdenar.getItems().addAll(opciones);
         
     }    
 
     @FXML
     private void home(MouseEvent event) {
-        //implementar para regresar
-        bienvenida.setText("Bienvenido "+ usuario.getNombre() +" "+ usuario.getApellidos());
-        
-        //podría ser un condicional donde se verifique que la escena es la misma que el home
+            try {
+                FXMLLoader loader = App.loadFXML("Menu");
+                Scene sc = new Scene(loader.load(),1214,590);
+                MenuController controlador = loader.getController();
+                controlador.setUsuario(usuario);
+                controlador.setIndiceUsuario(indiceUsuario);
+                App.setScene(sc);
+                
+            } catch (IOException ex) {
+
+            }          
     }
 
     @FXML
@@ -117,25 +142,8 @@ try {
 
     @FXML
     private void aceptarOferta(MouseEvent event) {
-        try {
-                FXMLLoader loader = App.loadFXML("AceptarOferta");
-                Scene sc = new Scene(loader.load(),1214,590);
-                AceptarOfertaController controlador = loader.getController();
-                controlador.setUsuario(usuario);
-                controlador.setIndiceUsuario(indiceUsuario);
-                App.setScene(sc);
-                
-                
-            } catch (IOException ex) {
-//                Alert a = new Alert(Alert.AlertType.ERROR,"Archivo no encontrado");
-//                a.show();
-            }              
-        
     }
 
-    
-    
-    
     @FXML
     private void cerrarSession(MouseEvent event) {
         Button b = (Button)event.getSource();
@@ -143,33 +151,24 @@ try {
             if (b.getScene() != null) {
                 Stage old = (Stage) b.getScene().getWindow();
                 old.close();
-            }          
-            //nota importante para mí,primero hay que cerrar el old stage y luego crear uno nuevo para que no salga una exception
-           
+            }                     
             FXMLLoader loader = App.loadFXML("Tienda");
             Scene sc = new Scene(loader.load(),640,480);
             TiendaController controlador = loader.getController();
-// analizar si no se necesita el este codio controlador.setPelicula(p);
             App.setScene(sc);
             Stage st = new Stage();
+            st.setResizable(false);
             st.setScene(sc);
-            st.setResizable(false);            
             st.show();
 
         }catch(IOException e){
             Alert a = new Alert(Alert.AlertType.INFORMATION,"Error");
             a.show();
-        }
-        
+        }             
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    @FXML
+    private void option(MouseEvent event) {
     }
-
-    public void setIndiceUsuario(int indiceUsuario) {
-        this.indiceUsuario = indiceUsuario;
-    }
-    
     
 }

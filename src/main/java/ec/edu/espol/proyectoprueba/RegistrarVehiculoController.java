@@ -151,15 +151,9 @@ public class RegistrarVehiculoController implements Initializable {
                 controlador.setIndiceUsuario(indiceUsuario);
                 
                 App.setScene(sc);
-//                Stage old = (Stage)b.getScene().getWindow();
-//                old.close();
-//                Stage st = new Stage();
-//                st.setScene(sc);
-//                st.show();
+
                 
             } catch (IOException ex) {
-//                Alert a = new Alert(Alert.AlertType.ERROR,"Archivo no encontrado");
-//                a.show();
             }        
     }
 
@@ -202,20 +196,28 @@ try {
                 controlador.setIndiceUsuario(indiceUsuario);
                 
                 App.setScene(sc);
-//                Stage old = (Stage)b.getScene().getWindow();
-//                old.close();
-//                Stage st = new Stage();
-//                st.setScene(sc);
-//                st.show();
-                
+
             } catch (IOException ex) {
-//                Alert a = new Alert(Alert.AlertType.ERROR,"Archivo no encontrado");
-//                a.show();
+
             }                        
     }
 
     @FXML
     private void aceptarOferta(MouseEvent event) {
+        try {
+                FXMLLoader loader = App.loadFXML("AceptarOferta");
+                Scene sc = new Scene(loader.load(),1214,590);
+                AceptarOfertaController controlador = loader.getController();
+                controlador.setUsuario(usuario);
+                controlador.setIndiceUsuario(indiceUsuario);
+                App.setScene(sc);
+                
+                
+            } catch (IOException ex) {
+//                Alert a = new Alert(Alert.AlertType.ERROR,"Archivo no encontrado");
+//                a.show();
+            }        
+        
     }
 
     
@@ -226,13 +228,10 @@ try {
             if (b.getScene() != null) {
                 Stage old = (Stage) b.getScene().getWindow();
                 old.close();
-            }          
-            //nota importante para mí,primero hay que cerrar el old stage y luego crear uno nuevo para que no salga una exception
-           
+            }                     
             FXMLLoader loader = App.loadFXML("Tienda");
             Scene sc = new Scene(loader.load(),640,480);
             TiendaController controlador = loader.getController();
-// analizar si no se necesita el este codio controlador.setPelicula(p);
             App.setScene(sc);
             Stage st = new Stage();
             st.setResizable(false);
@@ -250,8 +249,6 @@ try {
 //guardar el vehiculo en el registro de vehiculos    
     @FXML
     private void register(MouseEvent event) {
-//        Alert a = new Alert(Alert.AlertType.INFORMATION,opcionSeleccionada);
-//        a.show();
         
         //1
         if(placaText.getText().isBlank())

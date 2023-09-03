@@ -151,10 +151,25 @@ public class OfertarPorVehiculoController implements Initializable {
 
     @FXML
     private void ofertarVehiculo(MouseEvent event) {
+        
     }
 
     @FXML
     private void aceptarOferta(MouseEvent event) {
+        try {
+                FXMLLoader loader = App.loadFXML("AceptarOferta");
+                Scene sc = new Scene(loader.load(),1214,590);
+                AceptarOfertaController controlador = loader.getController();
+                controlador.setUsuario(usuario);
+                controlador.setIndiceUsuario(indiceUsuario);
+                App.setScene(sc);
+                
+                
+            } catch (IOException ex) {
+//                Alert a = new Alert(Alert.AlertType.ERROR,"Archivo no encontrado");
+//                a.show();
+            }        
+        
     }
 
     @FXML
