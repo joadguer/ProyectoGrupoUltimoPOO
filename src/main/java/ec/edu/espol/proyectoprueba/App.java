@@ -64,6 +64,9 @@ public class App extends Application {
         vehiculos.add(vehiculo1);
         vehiculos.add(vehiculo2);
         Vehiculo.saveListToFileSer("vehiculos.ser", vehiculos);
+        ArrayList<Oferta> ofertas  =new ArrayList<>();
+        Oferta.saveListToFileSer("ofertas.ser", ofertas);
+        
         launch();
     }
     public static void setStage(Stage newSt) throws IOException{

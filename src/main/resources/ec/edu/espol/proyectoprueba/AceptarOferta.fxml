@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="1214.0" style="-fx-background-color: #010001;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectoprueba.AceptarOfertaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="1214.0" style="-fx-background-color: #010001;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectoprueba.AceptarOfertaController">
    <top>
       <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" style="-fx-background-color: #9A031E;" BorderPane.alignment="CENTER">
          <children>
@@ -72,11 +72,10 @@
             </HBox>
             <TableView fx:id="tablaOfertas" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="columnPrecio" minWidth="100.0" prefWidth="220.0" sortType="DESCENDING" text="Precio" />
-                <TableColumn minWidth="100.0" prefWidth="230.0" text="Comprador" />
-                  <TableColumn minWidth="100.0" prefWidth="225.0" text="Placa Vehiculo" />
+                <TableColumn fx:id="columnPrecio" minWidth="100.0" prefWidth="300.0" sortType="DESCENDING" text="Precio" />
+                <TableColumn fx:id="columnComprador" minWidth="100.0" prefWidth="300.0" text="Comprador" />
+                  <TableColumn fx:id="columnPlaca" minWidth="100.0" prefWidth="300.0" text="Placa Vehiculo" />
                   <TableColumn fx:id="columnAnio" minWidth="0.0" prefWidth="220.0" sortType="DESCENDING" text="Año Vehiculo" />
-                  <TableColumn minWidth="100.0" prefWidth="220.0" text="Modelo" />
               </columns>
             </TableView>
             <Button fx:id="btnAceptarOferta" mnemonicParsing="false" onAction="#aceptarOferta" prefHeight="25.0" prefWidth="110.0" text="Aceptar Oferta">

@@ -9,7 +9,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,16 +43,21 @@ private int indiceUsuario;
     @FXML
     private ComboBox<String> cbxOrdenar;
     @FXML
-    private TableView<Oferta> tablaOfertas;
-    @FXML
-    private TableColumn<Oferta, String> columnPrecio;
-    @FXML
-    private TableColumn<Oferta, String> columnAnio;
+    private TableView<Oferta> tablaOfertas = new TableView<>();
     @FXML
     private Button btnAceptarOferta;
     
     private static ArrayList<Oferta> ofertasAceptadas = new ArrayList<>();
 
+    private static ArrayList<Oferta> ofertas = new ArrayList<>();
+    @FXML
+    private TableColumn<Oferta, String> columnPrecio;
+    @FXML
+    private TableColumn<Oferta, String> columnComprador;
+    @FXML
+    private TableColumn<Oferta, String> columnPlaca;
+    @FXML
+    private TableColumn<Oferta, String> columnAnio;
 
 
     public Usuario getUsuario() {
@@ -80,10 +88,18 @@ private int indiceUsuario;
         opciones.add("Año");
         cbxOrdenar.getItems().addAll(opciones);
         
+        ofertas = Oferta.readListFromFileSer("ofertas.ser");
             
-          ObservableList<Oferta> data = FXCollections.observableArrayList(Oferta.getOfertas());
-           tablaOfertas.setItems(data);
-
+        ObservableList<Oferta> data = FXCollections.observableArrayList(ofertas);
+        
+        columnComprador.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCorreo()));
+        columnPrecio.setCellValueFactory(cellData -> new SimpleStringProperty(Double.toString(cellData.getValue().getPrecio())));
+        columnPlaca.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getVehiculo().getPlaca()));        
+        columnAnio.setCellValueFactory(cellData -> new SimpleStringProperty(Integer.toString(cellData.getValue().getVehiculo().getAño())));
+        
+        
+        tablaOfertas.setItems(data);
+           
         
     }    
 
@@ -165,19 +181,23 @@ try {
 
 @FXML
 private void ordenarOfertas(ActionEvent event) {
-    ObservableList<Oferta> orderedList = FXCollections.observableArrayList(Oferta.getOfertas());
+    ObservableList<Oferta> orderedList = FXCollections.observableArrayList(ofertas);
 
     String selectedOrder = cbxOrdenar.getSelectionModel().getSelectedItem();
     if (selectedOrder != null) {
         switch (selectedOrder) {
             case "Precio":
                 FXCollections.sort(orderedList, Comparator.comparing(Oferta::getPrecio));
+                System.out.println(orderedList);
+                
                 break;
             case "Año":
                 // I'm assuming that Vehiculo class has a getYear() method. 
                 // If it doesn't, you'll have to adjust this line accordingly.
                 FXCollections.sort(orderedList, Comparator.comparing(o -> o.getVehiculo().getAño()));
+                System.out.println(orderedList);
                 break;
+                
             default:
                 break;
         }
@@ -196,8 +216,9 @@ private void aceptarOferta(ActionEvent event) {
         ofertasAceptadas.add(selectedOffer);
 
         
-//        Oferta.getOfertas().remove(selectedOffer);
-
+       // ofertas.remove(selectedOffer);
+       
+       
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Oferta Aceptada");
         alert.setHeaderText(null);
@@ -238,6 +259,10 @@ private void aceptarOferta(ActionEvent event) {
 
     @FXML
     private void option(MouseEvent event) {
+    }
+
+    @FXML
+    private void aceptarOferta(MouseEvent event) {
     }
     
 }

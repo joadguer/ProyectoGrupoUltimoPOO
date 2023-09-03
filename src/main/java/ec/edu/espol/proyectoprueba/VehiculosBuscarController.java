@@ -44,10 +44,15 @@ public class VehiculosBuscarController implements Initializable {
      */
     
     private Vehiculo vehiculo;
+    
+    private static ArrayList<Oferta> ofertas = new ArrayList<>();
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODOjoad
         hboxVehiculos.setSpacing(10);
+        ofertas = Oferta.readListFromFileSer("ofertas.ser");
         
     }    
 
@@ -221,23 +226,27 @@ try {
                 Oferta offer = new Oferta(usuario.getEmail(),precio,vehiculo);
                 
                 ArrayList<Vehiculo> copiaVehiculos = new ArrayList<>(vehiculos);
-
+                
+                
                 //vehiculo.getOfertas().add(offer);
                 for(int i = 0; i<copiaVehiculos.size(); i++){
                     if(copiaVehiculos.get(i).getPlaca().equals(vehiculo.getPlaca())){
+                        System.out.println(copiaVehiculos);
+                        
                         copiaVehiculos.remove(i);
                         vehiculo.addOferta(offer);
+                         ofertas.add(offer);
+                        Oferta.saveListToFileSer("ofertas.ser", ofertas);
                         copiaVehiculos.add(i,vehiculo);
                         Vehiculo.saveListToFileSer("vehiculos.ser", copiaVehiculos);
+                        System.out.println("pasó print");                        
                         break;
                     }
                     
                         
                    
                 }
-                System.out.println(copiaVehiculos);
-                
-                
+                System.out.println(ofertas);
                 Alert a  = new Alert(Alert.AlertType.INFORMATION,"Oferta Registrada");
                 a.show(); 
                 
