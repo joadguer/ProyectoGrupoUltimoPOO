@@ -1,6 +1,17 @@
 ec\edu\espol\proyectoprueba\OfertarPorVehiculoController.class
+ec\edu\espol\proyectoprueba\Vehiculo.class
+ec\edu\espol\proyectoprueba\RegistroController.class
 ec\edu\espol\proyectoprueba\RegistrarVehiculoController.class
 ec\edu\espol\proyectoprueba\PerfilController.class
+ec\edu\espol\proyectoprueba\AceptarOfertaController.class
+ec\edu\espol\proyectoprueba\Auto.class
+ec\edu\espol\proyectoprueba\Camioneta.class
+module-info.class
 ec\edu\espol\proyectoprueba\VehiculosBuscarController.class
+ec\edu\espol\proyectoprueba\Oferta.class
+ec\edu\espol\proyectoprueba\Starter.class
 ec\edu\espol\proyectoprueba\MenuController.class
+ec\edu\espol\proyectoprueba\App.class
 ec\edu\espol\proyectoprueba\PasswordchangeController.class
+ec\edu\espol\proyectoprueba\TiendaController.class
+ec\edu\espol\proyectoprueba\Usuario.class
