@@ -40,14 +40,14 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        /*
+        
         ArrayList<Usuario> usuarios = new ArrayList<>();
-        Usuario usuario1 = new Usuario("joad","123","Guerrero","Josue","Espol","josue@gmail.com");
+        Usuario usuario1 = new Usuario("joad","123","Guerrero","Josue","Espol","edchavez@espol.edu.ec");
         Usuario usuario2 = new Usuario("ricar","456","Maldonado","Ricardo","Espol","ricardo@gmail.com");
         usuarios.add(usuario1);
         usuarios.add(usuario2);
         Usuario.saveListToFileSer("usuarios.ser", usuarios);
-        */
+        
         
         
       //  (String placa, String marca, String modelo, String tipoMotor, String color, String tipoCombustible, int año, int recorrido, double precio, String tipoVehiculo) {

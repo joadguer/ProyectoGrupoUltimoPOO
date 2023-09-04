@@ -23,7 +23,6 @@ public class Oferta implements Serializable{
     private String correo;
     private double precio;
     private Vehiculo vehiculo;
-    private static ArrayList<Oferta> ofertas = new ArrayList<>();
 
     public Oferta(String correo, double precio, Vehiculo vehiculo) {
         this.correo = correo;
@@ -55,13 +54,6 @@ public class Oferta implements Serializable{
         this.vehiculo = vehiculo;
     }
 
-    public static ArrayList<Oferta> getOfertas() {
-        return ofertas;
-    }
-
-    public static void setOfertas(ArrayList<Oferta> ofertas) {
-        Oferta.ofertas = ofertas;
-    }
 
     @Override
     public String toString() {

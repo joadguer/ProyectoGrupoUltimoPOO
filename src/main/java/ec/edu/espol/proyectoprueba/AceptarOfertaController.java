@@ -209,8 +209,8 @@ private void ordenarOfertas(ActionEvent event) {
     
 @FXML
 private void aceptarOferta(ActionEvent event) {
+   
     Oferta selectedOffer = tablaOfertas.getSelectionModel().getSelectedItem();
-    
     if (selectedOffer != null) {
         
         ofertasAceptadas.add(selectedOffer);
@@ -220,10 +220,14 @@ private void aceptarOferta(ActionEvent event) {
        
        
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Oferta Aceptada");
+        alert.setTitle("Oferta Aceptada");        
         alert.setHeaderText(null);
-        alert.setContentText("La oferta seleccionada ha sido aceptada");
+        alert.setContentText("La oferta seleccionada ha sido aceptada");        
+      
         alert.showAndWait();
+        System.out.println(selectedOffer);
+        Usuario.enviarConGMail(selectedOffer.getCorreo(),  "Oferta Aceptada",  "Su oferta ha sido aceptada");
+        
     } else {
         
         Alert alert = new Alert(Alert.AlertType.WARNING);

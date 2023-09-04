@@ -12,6 +12,12 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  *
@@ -113,7 +119,7 @@ public class Usuario implements Serializable{
     }
     
     
-        private static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
+        public static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
         
         String remitente = "tiendadeautospoo@gmail.com";
         
